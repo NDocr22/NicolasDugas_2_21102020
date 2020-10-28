@@ -92,6 +92,45 @@ a {
     }
 }
 
+/* Search */
+
+.title_search {
+    padding: 1rem;
+}
+
+.location_icon {
+    background-color: #F2F2F2;
+    padding: 1rem;
+    border-radius: 1rem 0 0 1rem;
+    margin-left: 1rem;
+}
+
+.search_text {
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid #F2F2F2;
+    border-bottom: 1px solid #F2F2F2;
+    font-size: 1rem;
+    width: 14rem;
+    font-weight: bold;
+    padding: 1rem;
+}
+
+.search_text::placeholder {
+    font-size: 1rem;
+    color: #000000;
+    padding: 1rem;
+}
+
+.search_button {
+    background-color: #0065FC;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 0 1rem 1rem 0;
+    padding: 1rem;
+    cursor: pointer;
+}
 
 
 
