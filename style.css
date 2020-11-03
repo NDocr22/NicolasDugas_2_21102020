@@ -106,6 +106,11 @@ a {
     margin-left: 1rem;
 }
 
+.search_form {
+    display: inline-flex;
+    max-width: 100%;
+    overflow: auto;
+}
 .search_text {
     border-left: none;
     border-right: none;
@@ -114,13 +119,13 @@ a {
     font-size: 1rem;
     width: 14rem;
     font-weight: bold;
-    padding: 1rem;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
 }
 
 .search_text::placeholder {
     font-size: 1rem;
     color: #000000;
-    padding: 1rem;
 }
 
 .search_button {
@@ -130,30 +135,17 @@ a {
     border: none;
     border-radius: 0 1rem 1rem 0;
     padding: 1rem;
+    font-size: 1rem;
     cursor: pointer;
 }
 
-@media screen and (max-width: 600px) {
-    .searchbutton_text {
-        display: none;
-    }
-    .search_button {
-        border-radius: 1rem 1rem 1rem 1rem;
-        width: 50px;
-        height: 50px;  
-    }
-    .searchbutton_icon {
-        font-size: 20px;
-    }
-}
-
-@media screen and (min-width: 601px) {
-    .searchbutton_icon {
-        visibility: hidden;
-    }
-}
-
 /* Filters */
+
+.filters {
+    display: flex;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
 
 .filterstitle_1 {
     padding: 1rem;
@@ -166,15 +158,21 @@ a {
     align-items: center;
 }
 
+.filtersbox_icon {
+    background-color: #deebff;
+    border-radius: 100%;
+    height: 3rem;
+    width: 3rem;
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -2px;
+}
 
 .filters_icon {
-    text-align: center;
-    padding: 1rem;
-    border-radius: 100%;
     color: #0065FC;
-    background-color: #DEEBFF;
-    font-size: 1.33rem;
-    
 }
 
 .filters_box {
@@ -186,12 +184,14 @@ a {
     margin-bottom: 1rem;
     cursor: pointer;
     font-weight: bold;
-    width: 40%;
-    
+}
+
+.filters_box:last-child {
+    margin-right: 0;
 }
 
 .filters_text {
-    margin: 0.5rem;
+    margin: 0 1rem;
 }
 
 .filters_box:hover {
@@ -222,10 +222,47 @@ a {
     margin: 0;
 }
 
+@media screen and (max-width: 600px) {
+    .search_form {
+        display: flex;
+        width: 100%;
+    }
+    .search_text {
+        flex: 1;
+    }
+    .searchbutton_text {
+        display: none;
+    }
+    .searchbutton_icon {
+        display: block;
+    }
+}
+
+@media screen and(max-width: 650px) {
+    .filters {
+        width: 100%;
+    }
+    .filters_box {
+        margin-right: 1rem;
+        width: 100%;
+        
+    }
+}
+
+@media screen and (min-width: 601px) {
+    .searchbutton_text {
+        display: block;
+    }
+    .searchbutton_icon {
+        display: none !important;
+    }
+}
+
 /* Popular */
 
 .hosting_popular {
     display: grid;
+    grid-area: popular;
     row-gap: 2rem;
     align-items: start;
     grid-template-rows: auto repeat(3, 1fr);
@@ -246,6 +283,7 @@ a {
     margin: 0;
     display: flex;
     justify-content: space-between;
+    grid-column: 1/-1;
 }
 
 .popular_content {
@@ -294,6 +332,15 @@ a {
     
 }
 
+.popularmain_content {
+    display: flex;
+    flex-direction: column;
+}
+
+.popular_fond {
+    flex: 1;
+}
+
 @media screen and (min-width: 600px) {
     .hosting_popular {
         grid-template-columns: repeat(3, 1fr);
@@ -301,12 +348,22 @@ a {
      
 }
 
+@media (min-width: 1100px) {
+    .hosting_popular {
+        grid-row: 1/1;
+    }
+}
+
 /* Hébergements */
 
 .hosting {
     display: grid;
     column-gap: 2rem;
-    grid-template-columns: 6fr;
+    grid-template-columns: 6fr 3fr;
+}
+
+.hostingtitle_1 {
+    grid-column: 1/-1;
 }
 
 .bloc_section1 {
@@ -316,7 +373,7 @@ a {
 }
 
 .hostingmain_title {
-    margin: 0 0.75rem;
+    margin: 0;
 }
 
 .hosting_1 {
@@ -355,7 +412,7 @@ a {
 }
 
 .hosting_note {
-    margin: 0.75rem;
+    margin: 0 0.75rem 0.25rem 0.75rem;
     color: #0065FC;
 }
 
@@ -368,6 +425,38 @@ a {
     margin: 2rem 1rem;
 }
 
+@media (min-width: 925px) {
+    .hosting_viewmore {
+        position: relative;
+        left: -1280px;
+        bottom: -500px;
+    }
+}
+
+@media (min-width: 925px) {
+    .bloc_section1 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 925px) and (min-width: 650px) {
+    .bloc_section1 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+    .bloc_section1 {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1000px) {
+    .hosting {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto repeat(3, 9rem);
+    }
+}
 /* Activity */
 
 .bloc_activity {
@@ -418,16 +507,16 @@ a {
         grid-row: 2/5;
     }
     .activity3 {
+        grid-column: 2/3;
+        grid-row: 6/7;
+    }
+    .activity4 {
         grid-column: 3/4;
         grid-row: 2/7;
     }
-    .activity4 {
+    .activity5 {
         grid-column: 4/5;
         grid-row: 2/3;
-    }
-    .activity5 {
-        grid-column: 2/3;
-        grid-row: 6/7;
     }
     .activity6 {
         grid-column: 4/5;
@@ -460,13 +549,6 @@ a {
 }
 /* Footer */
 
-.footer_title {
-    font-weight: bold;
-    margin-left: 2.5rem;
-    position: relative;
-    top: 3rem;
-}
-
 ul {
     list-style: none;
     position: relative;
@@ -479,8 +561,67 @@ li {
 
 .bloc_footer {
     background-color: #F2F2F2;
-    position: absolute;
-    width: 100%;
-    height: 50%;  
+    width: 100%;  
 }
 
+.footer {
+    display: flex;
+    max-width: 100%;
+    width: 1440px;
+    margin: auto;
+    padding: 0 2rem;
+    box-sizing: border-box;
+}
+
+.footer_column {
+    width: 30%;
+    padding: 2rem 2rem;
+}
+
+.footer_link {
+    display: block;
+    margin: 0;
+    
+}
+
+.footer_link:hover {
+    text-decoration: underline;
+}
+@media (max-width: 750px) {
+    .footer {
+        flex-direction: column;
+        padding: 2rem;
+    }
+    .footer_column {
+        width: 100%;
+        padding: 0;
+        margin: 1rem 0;
+    }
+    .footer_column:first-child {
+        margin-top: 0;
+    }
+    .footer_column:last-child {
+        margin-bottom: 0;
+    }
+    .footer_title {
+        margin: 0;
+    }
+    .footer_link:last-child {
+        margin-bottom: 0;
+    }
+    .footer_link {
+        position: relative;
+        margin: 0;
+        left: -40px;
+        top: -40px;
+    }
+}
+
+@media (min-width: 600px) {
+    .footer_link {
+        position: relative;
+        margin: 0;
+        left: -45px;
+        top: -45px;
+    }
+}
