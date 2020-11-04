@@ -262,7 +262,6 @@ a {
 
 .hosting_popular {
     display: grid;
-    grid-area: popular;
     row-gap: 2rem;
     align-items: start;
     grid-template-rows: auto repeat(3, 1fr);
@@ -348,11 +347,24 @@ a {
      
 }
 
-@media (min-width: 1100px) {
+@media screen and (min-width: 1100px) {
     .hosting_popular {
         grid-row: 1/1;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .hosting_popular {
+        position: relative;
+        top: -1900px;
+    }
+    .hosting {
+        position: relative;
+        bottom: -750px;
+    }
+}
+
+
 
 /* Hébergements */
 
@@ -547,6 +559,13 @@ a {
         grid-template-rows: auto 12rem 12rem 12rem 12rem 12rem 12rem;
     }
 }
+
+@media screen and (max-width: 600px) {
+    .bloc_activity {
+        position: relative;
+        top: -300px;
+    }
+}
 /* Footer */
 
 ul {
@@ -623,5 +642,12 @@ li {
         margin: 0;
         left: -45px;
         top: -45px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .bloc_footer {
+        position: relative;
+        top: -350px;
     }
 }
