@@ -402,6 +402,22 @@ a {
     }
 }
 
+@media (min-width: 768px) and (max-width: 1024px) {
+    .hosting_popular {
+        grid-template-columns: 1fr;
+        position: relative;
+        top: -300px;
+    }
+    .bloc_activity {
+        position: relative;
+        top: -300px;
+    }
+    .bloc_footer {
+        position: relative;
+        top: -300px;
+    }
+}
+
 
 
 /* Hébergements */
